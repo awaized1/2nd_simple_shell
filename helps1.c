@@ -7,14 +7,13 @@ int handle_args(int *exe_ret);
 int check_args(char **args);
 
 /**
- * get_args - obtains inst from standard input.
- * @line: where the command is saved
- * @exe_ret: The place for rete last executed command.
+ * get_args - Gets a command from standard input.
+ * @line: A buffer to store the command.
+ * @exe_ret: The return value of the last executed command.
  *
- * Return: for error occurs - NULL.
- *         Otherwise - a pointer to the stores command.
+ * Return: If an error occurs - NULL.
+ *         Otherwise - a pointer to the stored command.
  */
-
 char *get_args(char *line, int *exe_ret)
 {
 	size_t n = 0;
@@ -43,14 +42,13 @@ char *get_args(char *line, int *exe_ret)
 }
 
 /**
- * call_args - code will Partitions operators from
- * @args: An array of arguments to the function
- * @front: A twice pointer to args.
- * @exe_ret: returns val to parent
+ * call_args - Partitions operators from commands and calls them.
+ * @args: An array of arguments.
+ * @front: A double pointer to the beginning of args.
+ * @exe_ret: The return value of the parent process' last executed command.
  *
- * Return: The return value of the most recent executed command.
+ * Return: The return value of the last executed command.
  */
-
 int call_args(char **args, char **front, int *exe_ret)
 {
 	int ret, index;
@@ -102,14 +100,13 @@ int call_args(char **args, char **front, int *exe_ret)
 }
 
 /**
- * run_args - This will Call out the execution of a command.
- * @args: An array of args.
- * @front: A 2x ptr to the beginning of args.
- * @exe_ret: The ret valof the 1st procxss' last executed command.
+ * run_args - Calls the execution of a command.
+ * @args: An array of arguments.
+ * @front: A double pointer to the beginning of args.
+ * @exe_ret: The return value of the parent process' last executed command.
  *
  * Return: The return value of the last executed command.
  */
-
 int run_args(char **args, char **front, int *exe_ret)
 {
 	int ret, i;
@@ -138,14 +135,13 @@ int run_args(char **args, char **front, int *exe_ret)
 }
 
 /**
- * handle_args - code Get and pickes a comm
- * @exe_ret: The return value of the first process' prev  command.
+ * handle_args - Gets, calls, and runs the execution of a command.
+ * @exe_ret: The return value of the parent process' last executed command.
  *
  * Return: If an end-of-file is read - END_OF_FILE (-2).
- *         If the input cannot be token - -1.
- *         O/w - The exit valued command.
+ *         If the input cannot be tokenized - -1.
+ *         O/w - The exit value of the last executed command.
  */
-
 int handle_args(int *exe_ret)
 {
 	int ret = 0, index;
@@ -186,10 +182,10 @@ int handle_args(int *exe_ret)
 }
 
 /**
- * check_args - Command Checks iletting ing ';', ';;', '&&', or '||'.
- * @args: code  rovides ds and arguments.
+ * check_args - Checks if there are any leading ';', ';;', '&&', or '||'.
+ * @args: 2D pointer to tokenized commands and arguments.
  *
- * Return: If a ';', '&&', or '||' pole state - 2.
+ * Return: If a ';', '&&', or '||' is placed at an invalid position - 2.
  *   Otherwise - 0.
  */
 int check_args(char **args)

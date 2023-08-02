@@ -1,32 +1,31 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-#include <stdio.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <stdio.h>
 
 #define END_OF_FILE -2
 #define EXIT -3
 
 /* Global environemnt */
 extern char **environ;
-/* Global code name */
+/* Global program name */
 char *name;
 /* Global history counter */
 int hist;
 
 /**
- * struct list_s - Code of new struct type defining a linked list.
- * @dir: A dir
- * @next: A pointer to anothect list_s.
+ * struct list_s - A new struct type defining a linked list.
+ * @dir: A directory path.
+ * @next: A pointer to another struct list_s.
  */
-
 typedef struct list_s
 {
 	char *dir;
@@ -34,11 +33,10 @@ typedef struct list_s
 } list_t;
 
 /**
- * struct builtin_s - Code of A new struct tyfining builtin commands.
- * @name: The comd
- * @f: A function pointernd's function.
+ * struct builtin_s - A new struct type defining builtin commands.
+ * @name: The name of the builtin command.
+ * @f: A function pointer to the builtin command's function.
  */
-
 typedef struct builtin_s
 {
 	char *name;
@@ -48,10 +46,9 @@ typedef struct builtin_s
 /**
  * struct alias_s - A new struct defining aliases.
  * @name: The name of the alias.
- * @value: The thing e alias.
+ * @value: The value of the alias.
  * @next: A pointer to another struct alias_s.
  */
-
 typedef struct alias_s
 {
 	char *name;
@@ -103,26 +100,27 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front);
 int shellby_alias(char **args, char __attribute__((__unused__)) **front);
 int shellby_help(char **args, char __attribute__((__unused__)) **front);
 
-/* Builtin Helps */
-char **_getenv(const char *var);
+/* Builtin Helpers */
 char **_copyenv(void);
 void free_env(void);
+char **_getenv(const char *var);
 
-/* Errora Handl*/
-char *error_126(char **args);
-char *error_127(char **args)
+/* Error Handling */
 int create_error(char **args, int err);
 char *error_env(char **args);
 char *error_1(char **args);
 char *error_2_exit(char **args);
 char *error_2_cd(char **args);
 char *error_2_syntax(char **args);
+char *error_126(char **args);
+char *error_127(char **args);
 
 /* Linkedlist Helpers */
 alias_t *add_alias_end(alias_t **head, char *name, char *value);
 void free_alias_list(alias_t *head);
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
+
 void help_all(void);
 void help_alias(void);
 void help_cd(void);

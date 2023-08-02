@@ -4,12 +4,11 @@ char *error_126(char **args);
 char *error_127(char **args);
 
 /**
- * error_126 - Code creates an err message for permission deny failures
- * @args: The array of args passed to the com
+ * error_126 - Creates an error message for permission denied failures.
+ * @args: An array of arguments passed to the command.
  *
- * Return:  error str.
+ * Return: The error string.
  */
-
 char *error_126(char **args)
 {
 	char *error, *hist_str;
@@ -39,12 +38,11 @@ char *error_126(char **args)
 }
 
 /**
- * error_127 - Code will crereates an err mess for command 
- * @args: An arr of ARGS PASED
+ * error_127 - Creates an error message for command not found failures.
+ * @args: An array of arguments passed to the command.
  *
- * Return: The err for string
+ * Return: The error string.
  */
-
 char *error_127(char **args)
 {
 	char *error, *hist_str;

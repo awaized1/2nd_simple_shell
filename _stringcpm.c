@@ -6,12 +6,12 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(const char *s1, const char *s2, size_t n);
 
 /**
- * _strchr - ode of the schar
- * @s: The searched.
- * @c: The chara to be located.
+ * _strchr - Locates a character in a string.
+ * @s: The string to be searched.
+ * @c: The character to be located.
  *
- * Return: If c if found- a pointer to the first occurence.
- *         If c it is not found - NULL.
+ * Return: If c is found - a pointer to the first occurence.
+ *         If c is not found - NULL.
  */
 char *_strchr(char *s, char c)
 {
@@ -27,11 +27,11 @@ char *_strchr(char *s, char c)
 }
 
 /**
- * _strspn -code  Gets the length of a prefix substring.
- * @s: The char to be searched.
- * @accept:  prefix to be measured.
+ * _strspn - Gets the length of a prefix substring.
+ * @s: The string to be searched.
+ * @accept: The prefix to be measured.
  *
- * Return: The numb will of bytes in s which
+ * Return: The number of bytes in s which
  *         consist only of bytes from accept.
  */
 int _strspn(char *s, char *accept)
@@ -55,8 +55,8 @@ int _strspn(char *s, char *accept)
 }
 
 /**
- * _strcmp - Comparjsjjdjshjskes two strings.
- * @s1: The first string to bethe  compared.
+ * _strcmp - Compares two strings.
+ * @s1: The first string to be compared.
  * @s2: The second string to be compared.
  *
  * Return: Positive byte difference if s1 > s2
@@ -78,12 +78,12 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strncmp - will add code
+ * _strncmp - Compare two strings.
  * @s1: Pointer to a string.
- * @s2: Pointer to a sthattring.
- * @n: The first n bytes oforf the strings to compare.
+ * @s2: Pointer to a string.
+ * @n: The first n bytes of the strings to compare.
  *
- * Return: Less than 0 if s1 long is shorter than s2.
+ * Return: Less than 0 if s1 is shorter than s2.
  *         0 if s1 and s2 match.
  *         Greater than 0 if s1 is longer than s2.
  */

@@ -5,14 +5,12 @@ char *error_1(char **args);
 char *error_2_exit(char **args);
 char *error_2_cd(char **args);
 char *error_2_syntax(char **args);
-
 /**
- * error_env - Code will creates an err message errors.
- * @args: An array ommand.
+ * error_env - Creates an error message for shellby_env errors.
+ * @args: An array of arguments passed to the command.
  *
- * Return: The er string.
+ * Return: The error string.
  */
-
 char *error_env(char **args)
 {
 	char *error, *hist_str;
@@ -43,12 +41,11 @@ char *error_env(char **args)
 }
 
 /**
- * error_1 - Code Creates an er message for shellby_alias errors.
- * @args: An array ofstrings funcents passed to the command.
+ * error_1 - Creates an error message for shellby_alias errors.
+ * @args: An array of arguments passed to the command.
  *
  * Return: The error string.
  */
-
 char *error_1(char **args)
 {
 	char *error;
@@ -67,12 +64,11 @@ char *error_1(char **args)
 }
 
 /**
- * error_2_exit - code Creates an error message for shellby_exit errors.
- * @args: An array will gerthe command.
+ * error_2_exit - Creates an error message for shellby_exit errors.
+ * @args: An array of arguments passed to the command.
  *
- * Return: error
+ * Return: The error string.
  */
-
 char *error_2_exit(char **args)
 {
 	char *error, *hist_str;
@@ -102,8 +98,8 @@ char *error_2_exit(char **args)
 }
 
 /**
- * error_2_cd - Code will make an error message for shellby_cd errors.
- * @args: An array of args in used to the command.
+ * error_2_cd - Creates an error message for shellby_cd errors.
+ * @args: An array of arguments passed to the command.
  *
  * Return: The error string.
  */
@@ -141,23 +137,22 @@ char *error_2_cd(char **args)
 }
 
 /**
- * error_2_syntax - Code Creates an error message for syntax errors.
+ * error_2_syntax - Creates an error message for syntax errors.
  * @args: An array of arguments passed to the command.
  *
  * Return: The error string.
  */
-
 char *error_2_syntax(char **args)
 {
 	char *error, *hist_str;
-	int lent;
+	int len;
 
 	hist_str = _itoa(hist);
 	if (!hist_str)
 		return (NULL);
 
-	lent = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 33;
-	error = malloc(sizeof(char) * (lent + 1));
+	len = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 33;
+	error = malloc(sizeof(char) * (len + 1));
 	if (!error)
 	{
 		free(hist_str);

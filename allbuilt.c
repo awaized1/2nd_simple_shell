@@ -5,15 +5,14 @@ void set_alias(char *var_name, char *value);
 void print_alias(alias_t *alias);
 
 /**
- * shellby_alias - This command either prints all aliases, specific
- * aliases, or sets in the alias
- * @args: The array of arg.
- * @front: Double pointer to the start of arguments.
+ * shellby_alias - Builtin command that either prints all aliases, specific
+ * aliases, or sets an alias.
+ * @args: An array of arguments.
+ * @front: A double pointer to the beginning of args.
  *
- * Return: For  err occurs - -1.
+ * Return: If an error occurs - -1.
  *         Otherwise - 0.
  */
-
 int shellby_alias(char **args, char __attribute__((__unused__)) **front)
 {
 	alias_t *temp = aliases;
@@ -54,12 +53,11 @@ int shellby_alias(char **args, char __attribute__((__unused__)) **front)
 }
 
 /**
- * set_alias - Code either set an existing alias
- * 'name'
- * @var_name: Names the alias.
- * @value: Value of alias. The Foremost char is a '='.
+ * set_alias - Will either set an existing alias 'name' with a new value,
+ * 'value' or creates a new alias with 'name' and 'value'.
+ * @var_name: Name of the alias.
+ * @value: Value of the alias. First character is a '='.
  */
-
 void set_alias(char *var_name, char *value)
 {
 	alias_t *temp = aliases;
@@ -93,10 +91,9 @@ void set_alias(char *var_name, char *value)
 }
 
 /**
- * print_alias - code prints the alias  format name='value'.
- * @alias: Pointer to the alias.
+ * print_alias - Prints the alias in the format name='value'.
+ * @alias: Pointer to an alias.
  */
-
 void print_alias(alias_t *alias)
 {
 	char *alias_string;
@@ -114,13 +111,12 @@ void print_alias(alias_t *alias)
 	free(alias_string);
 }
 /**
- * replace_aliases - Code goes through the args and replaces any matching 
+ * replace_aliases - Goes through the arguments and replace any matching alias
  * with their value.
- * @args: pointer to the args.
+ * @args: 2D pointer to the arguments.
  *
- * Return: pointer to the args.
+ * Return: 2D pointer to the arguments.
  */
-
 char **replace_aliases(char **args)
 {
 	alias_t *temp;
